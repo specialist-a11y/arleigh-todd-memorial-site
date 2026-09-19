@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>In loving memory of Arleigh Patrick Todd</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#1C1712;--night2:#262019;--wax:#F3E6CF;--flame:#E9A23B;--ember:#8A4B1E;--smoke:#A79B8A;--line:#3A3128;
+--serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--night)}
+body{margin:0;background:var(--night);color:var(--wax);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img,video{max-width:100%;display:block}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--flame);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.hero{text-align:center;padding:48px 0 40px;position:relative}
+.hero::before{content:"";position:absolute;left:50%;top:40px;width:520px;max-width:120%;height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(233,162,59,.16),rgba(233,162,59,0));pointer-events:none}
+.arch{position:relative;width:min(240px,62vw);aspect-ratio:3/4;margin:0 auto;border-radius:999px 999px 14px 14px;overflow:hidden;border:1px solid rgba(233,162,59,.45);padding:6px;background:var(--night2)}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 10px 10px}
+.intro{margin:28px 0 0;font-size:15px;color:var(--flame);letter-spacing:.04em}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,11vw,72px);line-height:1.02;margin:6px 0 0;letter-spacing:-.01em}
+.lede{font-family:var(--serif);font-size:21px;line-height:1.5;color:#D9CBB2;max-width:30ch;margin:18px auto 0}
+.cta{margin:30px auto 0;max-width:340px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:999px;border:1px solid var(--flame);background:var(--flame);color:#2A1706;font-weight:600;font-size:16px;padding:0 22px}
+.btn:hover{background:#F2B55A}
+.ghost{background:transparent;color:var(--flame)}
+.ghost:hover{background:rgba(233,162,59,.1)}
+.tally{margin:14px 0 0;font-size:14px;color:var(--smoke)}
+.tally button{background:none;border:0;color:var(--wax);text-decoration:underline;text-underline-offset:3px;padding:0}
+.form{text-align:left}
+.form label{display:block;font-size:14px;color:var(--flame);margin-bottom:8px}
+.form input{width:100%;height:50px;border-radius:12px;border:1px solid var(--line);background:var(--night2);color:var(--wax);font:inherit;font-size:17px;padding:0 16px}
+.form input:focus{border-color:var(--flame);outline:none}
+.err{color:#F0A08A;font-size:14px;margin:8px 0 0;min-height:1em}
+.form .row{display:flex;gap:10px;margin-top:12px}
+.flame{display:inline-block;width:14px;height:20px;position:relative}
+.flame::before{content:"";position:absolute;inset:0;background:currentColor;border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
+.bigflame{width:22px;height:34px;color:var(--flame);margin:0 auto;animation:flick 3.2s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes flick{0%,100%{transform:scale(1) rotate(0)}30%{transform:scale(.94,1.05) rotate(-2deg)}60%{transform:scale(1.03,.97) rotate(1.5deg)}}
+@media (prefers-reduced-motion:reduce){.bigflame{animation:none}}
+.sec{border-top:1px solid var(--line);padding-top:40px;padding-bottom:20px}
+.sechead{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margin:0}
+.meta{color:var(--smoke);font-size:14px}
+.gal{columns:2;column-gap:10px}
+@media(min-width:700px){.gal{columns:3;column-gap:14px}}
+@media(min-width:1000px){.gal{columns:4}}
+.it{break-inside:avoid;margin:0 0 10px;position:relative;border:0;padding:0;background:var(--night2);border-radius:10px;overflow:hidden;width:100%;display:block}
+@media(min-width:700px){.it{margin-bottom:14px}}
+.it img{width:100%;height:auto;transition:opacity .2s}
+.it:hover img{opacity:.88}
+.play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play span{width:52px;height:52px;border-radius:50%;background:rgba(28,23,18,.72);border:1px solid rgba(243,230,207,.6);display:flex;align-items:center;justify-content:center}
+.play span::before{content:"";margin-left:4px;border-left:16px solid var(--wax);border-top:10px solid transparent;border-bottom:10px solid transparent}
+.lb{position:fixed;inset:0;background:rgba(14,11,8,.96);z-index:20;display:none;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.lb.on{display:flex}
+.lbbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;color:var(--smoke);font-size:14px}
+.ib{background:none;border:1px solid var(--line);color:var(--wax);width:44px;height:44px;border-radius:50%;font-size:20px;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.lbstage{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 10px;touch-action:pan-y}
+.lbstage img,.lbstage video{max-height:100%;max-width:100%;object-fit:contain;border-radius:6px}
+.lbnav{display:flex;justify-content:center;gap:16px;padding:12px}
+.view{display:none}
+.view.on{display:block}
+.back{background:none;border:0;color:var(--flame);font-size:15px;padding:24px 0 0;display:inline-flex;gap:8px;align-items:center}
+.wallhead{text-align:center;padding:28px 0 28px}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;padding-bottom:30px}
+.cd{background:var(--night2);border:1px solid var(--line);border-radius:14px;padding:18px 10px 14px;text-align:center}
+.cd .flame{color:var(--flame);margin-bottom:10px}
+.cd .wick{width:26px;height:40px;margin:0 auto;border-radius:4px 4px 2px 2px;background:linear-gradient(#EFE2C9,#CDBB98)}
+.cd p{margin:12px 0 0;font-family:var(--serif);font-size:19px;line-height:1.25;word-break:break-word}
+.cd.me{border-color:var(--flame);background:#2E2418}
+.cd.me small{display:block;color:var(--flame);font-size:12px;margin-top:4px;font-family:var(--sans)}
+.empty{text-align:center;color:var(--smoke);padding:10px 0 40px;font-size:15px}
+footer{text-align:center;padding:36px 20px 44px;border-top:1px solid var(--line);margin-top:20px}
+footer p{margin:0;font-family:var(--serif);font-size:24px;color:var(--flame)}
+</style>
+</head>
+<body>
+<main>
+<div id="home" class="view on">
+<section class="hero wrap">
+<div class="arch"><img src="media/45.jpg" alt="Arleigh Patrick Todd"></div>
+<p class="intro">In loving memory of</p>
+<h1>Arleigh Patrick Todd</h1>
+<p class="lede">Thank you for joining us to celebrate a life that touched so many of us.</p>
+<div class="cta" id="cta"></div>
+<p class="tally"><span id="tally"></span> <button type="button" id="seeWall">See the candles</button></p>
+</section>
+<section class="sec wrap" aria-labelledby="memh">
+<div class="sechead"><h2 id="memh">Memories</h2><span class="meta" id="memcount"></span></div>
+<div class="gal" id="gal"></div>
+</section>
+</div>
+<div id="candles" class="view">
+<div class="wrap">
+<button type="button" class="back" id="back">&#8592; Back to memories</button>
+<div class="wallhead">
+<div class="flame bigflame" aria-hidden="true"></div>
+<h2 style="margin-top:16px">Candles for Arleigh</h2>
+<p class="meta" id="wallcount" style="margin:8px 0 0"></p>
+<div class="cta" id="cta2"></div>
+</div>
+<div class="wall" id="wall"></div>
+</div>
+</div>
+</main>
+<footer><p>Forever in our hearts</p></footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Memory viewer">
+<div class="lbbar"><span id="lbpos"></span><button class="ib" id="lbclose" aria-label="Close">&#10005;</button></div>
+<div class="lbstage" id="lbstage"></div>
+<div class="lbnav"><button class="ib" id="lbprev" aria-label="Previous">&#8592;</button><button class="ib" id="lbnext" aria-label="Next">&#8594;</button></div>
+</div>
+<script src="config.js"></script>
+<script>
+const MEDIA=[
+{
+"t": "i",
+"src": "media/01.jpg",
+"w": 929,
+"h": 929
+},
+{
+"t": "i",
+"src": "media/02.jpg",
+"w": 1000,
+"h": 922
+},
+{
+"t": "i",
+"src": "media/03.jpg",
+"w": 959,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/04.jpg",
+"w": 1000,
+"h": 993
+},
+{
+"t": "i",
+"src": "media/05.jpg",
+"w": 1000,
+"h": 714
+},
+{
+"t": "i",
+"src": "media/06.jpg",
+"w": 1000,
+"h": 707
+},
+{
+"t": "i",
+"src": "media/07.jpg",
+"w": 658,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/08.jpg",
+"w": 662,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/09.jpg",
+"w": 700,
+"h": 685
+},
+{
+"t": "i",
+"src": "media/10.jpg",
+"w": 1000,
+"h": 598
+},
+{
+"t": "i",
+"src": "media/11.jpg",
+"w": 598,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/12.jpg",
+"w": 598,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/13.jpg",
+"w": 1000,
+"h": 598
+},
+{
+"t": "i",
+"src": "media/14.jpg",
+"w": 1000,
+"h": 594
+},
+{
+"t": "i",
+"src": "media/15.jpg",
+"w": 562,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/16.jpg",
+"w": 1000,
+"h": 563
+},
+{
+"t": "i",
+"src": "media/17.jpg",
+"w": 1000,
+"h": 750
+},
+{
+"t": "i",
+"src": "media/18.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/19.jpg",
+"w": 1000,
+"h": 750
+},
+{
+"t": "i",
+"src": "media/20.jpg",
+"w": 1000,
+"h": 559
+},
+{
+"t": "i",
+"src": "media/21.jpg",
+"w": 1000,
+"h": 563
+},
+{
+"t": "i",
+"src": "media/22.jpg",
+"w": 562,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/23.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/24.jpg",
+"w": 1000,
+"h": 750
+},
+{
+"t": "i",
+"src": "media/25.jpg",
+"w": 1000,
+"h": 800
+},
+{
+"t": "i",
+"src": "media/26.jpg",
+"w": 562,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/27.jpg",
+"w": 565,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/28.jpg",
+"w": 1000,
+"h": 750
+},
+{
+"t": "i",
+"src": "media/29.jpg",
+"w": 562,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/30.jpg",
+"w": 567,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/31.jpg",
+"w": 1000,
+"h": 765
+},
+{
+"t": "i",
+"src": "media/32.jpg",
+"w": 473,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/33.jpg",
+"w": 473,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/34.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/35.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/36.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/37.jpg",
+"w": 1000,
+"h": 868
+},
+{
+"t": "i",
+"src": "media/38.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/39.jpg",
+"w": 441,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/40.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/41.jpg",
+"w": 665,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/42.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/43.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/44.jpg",
+"w": 1000,
+"h": 700
+},
+{
+"t": "i",
+"src": "media/45.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/46.jpg",
+"w": 1000,
+"h": 750
+},
+{
+"t": "i",
+"src": "media/47.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/48.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/49.jpg",
+"w": 462,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/50.jpg",
+"w": 462,
+"h": 1000
+},
+{
+"t": "i",
+"src": "media/51.jpg",
+"w": 1000,
+"h": 968
+},
+{
+"t": "i",
+"src": "media/52.jpg",
+"w": 750,
+"h": 1000
+},
+{
+"t": "v",
+"src": "media/53.mp4",
+"poster": "media/53-poster.jpg"
+},
+{
+"t": "i",
+"src": "media/54.jpg",
+"w": 563,
+"h": 1000
+},
+{
+"t": "v",
+"src": "media/55.mp4",
+"poster": "media/55-poster.jpg"
+}
+];
+const SB_URL=(window.CANDLES_CONFIG||{}).supabaseUrl||"",SB_KEY=(window.CANDLES_CONFIG||{}).supabaseKey||"";
+const SHARED=!!(SB_URL&&SB_KEY);
+const KEY="apt-candle-mine";
+let candles=[],mineId=null,loaded=false;
+try{mineId=localStorage.getItem(KEY);}catch(e){}
+const H={"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json"};
+async function load(){if(!SHARED){try{candles=JSON.parse(localStorage.getItem("apt-candles-local")||"[]");}catch(e){candles=[];}loaded=true;renderAll();return;}try{const r=await fetch(SB_URL+"/rest/v1/candles?select=id,name,created_at&order=created_at.desc&limit=1000",{headers:H});if(!r.ok)throw 0;candles=await r.json();loaded=true;renderAll();}catch(e){}}
+async function addCandle(name){if(!SHARED){const row={id:"l"+Date.now(),name,created_at:new Date().toISOString()};candles.unshift(row);mineId=row.id;try{localStorage.setItem("apt-candles-local",JSON.stringify(candles));localStorage.setItem(KEY,row.id);}catch(e){}return;}const r=await fetch(SB_URL+"/rest/v1/candles",{method:"POST",headers:{...H,"Prefer":"return=representation"},body:JSON.stringify({name})});if(!r.ok)throw new Error("save");const row=(await r.json())[0];mineId=row.id;try{localStorage.setItem(KEY,row.id);}catch(e){}candles=candles.filter(c=>c.id!==row.id);candles.unshift(row);}
+const $=id=>document.getElementById(id);
+function plural(n){return n===1?"1 candle lit":n+" candles lit";}
+function renderCounts(){const t=!loaded?"":candles.length?plural(candles.length):"No candles lit yet.";$("tally").textContent=t;$("wallcount").textContent=candles.length?plural(candles.length):"";}
+function renderCta(el){
+  el.innerHTML="";
+  if(mineId&&candles.some(c=>String(c.id)===String(mineId))){const p=document.createElement("p");p.className="meta";p.style.color="var(--flame)";p.textContent="Your candle is lit";el.appendChild(p);return;}
+  const b=document.createElement("button");b.type="button";b.className="btn";b.innerHTML='<span class="flame" aria-hidden="true"></span>Light a candle';
+  b.onclick=()=>openForm(el);el.appendChild(b);
+}
+function openForm(el){
+  el.innerHTML='<div class="form"><label for="nm_'+el.id+'">Your name</label><input id="nm_'+el.id+'" maxlength="40" autocomplete="name" placeholder="Jane Smith"><p class="err" aria-live="polite"></p><div class="row"><button type="button" class="btn ghost cancel">Cancel</button><button type="button" class="btn go"><span class="flame" aria-hidden="true"></span>Light my candle</button></div></div>';
+  const inp=el.querySelector("input"),err=el.querySelector(".err");inp.focus();
+  inp.oninput=()=>{err.textContent="";};
+  const go=()=>{const v=inp.value.trim().replace(/\s+/g," ");if(!v){err.textContent="Enter your name to light a candle.";inp.focus();return;}
+    const gb=el.querySelector(".go");gb.disabled=true;gb.lastChild.textContent="Lighting…";addCandle(v).then(()=>{renderAll();show("candles");}).catch(()=>{gb.disabled=false;gb.lastChild.textContent="Light my candle";err.textContent="Your candle didn\u2019t save. Check your connection and try again.";});};
+  el.querySelector(".go").onclick=go;inp.onkeydown=e=>{if(e.key==="Enter")go();};
+  el.querySelector(".cancel").onclick=()=>renderCta(el);
+}
+function renderWall(){
+  const w=$("wall");w.innerHTML="";
+  if(!loaded){w.innerHTML='<p class="empty" style="grid-column:1/-1">Loading candles</p>';return;}
+  if(!candles.length){w.innerHTML='<p class="empty" style="grid-column:1/-1">Be the first to light a candle for Arleigh.</p>';return;}
+  candles.forEach((c)=>{const me=mineId&&String(c.id)===String(mineId);const d=document.createElement("div");d.className="cd"+(me?" me":"");
+    d.innerHTML='<span class="flame" aria-hidden="true"></span><div class="wick" aria-hidden="true"></div><p></p>';
+    d.querySelector("p").textContent=c.name;
+    if(me){const s=document.createElement("small");s.textContent="Your candle";d.querySelector("p").appendChild(s);}
+    w.appendChild(d);});
+}
+function renderAll(){renderCounts();renderCta($("cta"));renderCta($("cta2"));renderWall();}
+function show(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id===v));window.scrollTo(0,0);}
+$("seeWall").onclick=()=>show("candles");$("back").onclick=()=>show("home");
+const gal=$("gal");const vids=MEDIA.filter(m=>m.t==="v").length;
+$("memcount").textContent=(MEDIA.length-vids)+" photos and "+vids+" videos";
+MEDIA.forEach((m,i)=>{const b=document.createElement("button");b.type="button";b.className="it";
+  b.setAttribute("aria-label",(m.t==="v"?"Play video ":"Open photo ")+(i+1)+" of "+MEDIA.length);
+  const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";img.src=m.t==="v"?m.poster:m.src;
+  if(m.w){img.width=m.w;img.height=m.h;}
+  b.appendChild(img);if(m.t==="v"){const p=document.createElement("div");p.className="play";p.innerHTML="<span></span>";b.appendChild(p);}
+  b.onclick=()=>openLb(i);gal.appendChild(b);});
+let cur=0,lastFocus=null;
+function drawLb(){const m=MEDIA[cur],st=$("lbstage");st.innerHTML="";
+  if(m.t==="v"){const v=document.createElement("video");v.src=m.src;v.poster=m.poster;v.controls=true;v.playsInline=true;v.autoplay=true;st.appendChild(v);}
+  else{const im=document.createElement("img");im.src=m.src;im.alt="Photo "+(cur+1);st.appendChild(im);}
+  $("lbpos").textContent=(cur+1)+" of "+MEDIA.length;}
+function openLb(i){lastFocus=document.activeElement;cur=i;drawLb();$("lb").classList.add("on");document.body.style.overflow="hidden";$("lbclose").focus();}
+function closeLb(){$("lb").classList.remove("on");$("lbstage").innerHTML="";document.body.style.overflow="";if(lastFocus)lastFocus.focus();}
+function step(d){cur=(cur+d+MEDIA.length)%MEDIA.length;drawLb();}
+$("lbclose").onclick=closeLb;$("lbprev").onclick=()=>step(-1);$("lbnext").onclick=()=>step(1);
+document.addEventListener("keydown",e=>{if(!$("lb").classList.contains("on"))return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1);});
+let sx=null;const st=$("lbstage");
+st.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;},{passive:true});
+st.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)step(dx<0?1:-1);sx=null;});
+renderAll();load();if(SHARED)setInterval(()=>{if(!document.hidden)load();},20000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)load();});
+</script>
+</body>
+</html>

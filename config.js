@@ -1,0 +1,7 @@
+// Shared candle wall settings.
+// Leave both blank and each visitor only sees the candles lit on their own phone.
+// Fill both in to share every candle with everyone.
+window.CANDLES_CONFIG = {
+  supabaseUrl: "",
+  supabaseKey: ""
+};
