@@ -3,5 +3,5 @@
 // Fill both in to share every candle with everyone.
 window.CANDLES_CONFIG = {
   supabaseUrl: "",
-  supabaseKey: ""
+  supabaseKey: "sb_publishable_Fh4ljB5D6IU_zH0X2RObrg_56O9Ffnz"
 };
