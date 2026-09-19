@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>In loving memory of Arleigh Patrick Todd</title>
+<title>In loving memory of Arleigh Arthur Patrick Todd</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--night:#1C1712;--night2:#262019;--wax:#F3E6CF;--flame:#E9A23B;--ember:#8A4B1E;--smoke:#A79B8A;--line:#3A3128;
 --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;--sans:"Mulish",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -22,21 +22,29 @@ button{font:inherit;cursor:pointer}
 .arch{position:relative;width:min(240px,62vw);aspect-ratio:3/4;margin:0 auto;border-radius:999px 999px 14px 14px;overflow:hidden;border:1px solid rgba(233,162,59,.45);padding:6px;background:var(--night2)}
 .arch img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:999px 999px 10px 10px}
 .intro{margin:28px 0 0;font-size:15px;color:var(--flame);letter-spacing:.04em}
-h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,11vw,72px);line-height:1.02;margin:6px 0 0;letter-spacing:-.01em}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,9vw,64px);line-height:1.05;margin:6px 0 0;letter-spacing:-.01em}
+.dates{font-family:var(--serif);font-size:20px;color:var(--flame);margin:8px 0 0;font-style:italic;letter-spacing:.02em}
 .lede{font-family:var(--serif);font-size:21px;line-height:1.5;color:#D9CBB2;max-width:30ch;margin:18px auto 0}
-.cta{margin:30px auto 0;max-width:340px}
+.cta{margin:30px auto 0;max-width:420px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:52px;border-radius:999px;border:1px solid var(--flame);background:var(--flame);color:#2A1706;font-weight:600;font-size:16px;padding:0 22px}
 .btn:hover{background:#F2B55A}
 .ghost{background:transparent;color:var(--flame)}
 .ghost:hover{background:rgba(233,162,59,.1)}
+.btn.danger{background:#5A1B14;border-color:#8A2B1E;color:#FCA5A5}
+.btn.danger:hover{background:#73231B;color:#FFF}
+.btn.sm{min-height:40px;padding:0 14px;font-size:14px;width:auto}
+.my-actions{display:flex;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
 .tally{margin:14px 0 0;font-size:14px;color:var(--smoke)}
 .tally button{background:none;border:0;color:var(--wax);text-decoration:underline;text-underline-offset:3px;padding:0}
-.form{text-align:left}
-.form label{display:block;font-size:14px;color:var(--flame);margin-bottom:8px}
-.form input{width:100%;height:50px;border-radius:12px;border:1px solid var(--line);background:var(--night2);color:var(--wax);font:inherit;font-size:17px;padding:0 16px}
-.form input:focus{border-color:var(--flame);outline:none}
-.err{color:#F0A08A;font-size:14px;margin:8px 0 0;min-height:1em}
-.form .row{display:flex;gap:10px;margin-top:12px}
+.form{text-align:left;background:var(--night2);border:1px solid var(--line);padding:20px;border-radius:16px}
+.form label{display:block;font-size:14px;color:var(--flame);margin-bottom:6px;margin-top:12px}
+.form label:first-child{margin-top:0}
+.form input,.form textarea{width:100%;border-radius:12px;border:1px solid var(--line);background:#18130E;color:var(--wax);font:inherit;font-size:16px;padding:12px 16px}
+.form input{height:48px}
+.form textarea{min-height:88px;resize:vertical;line-height:1.4}
+.form input:focus,.form textarea:focus{border-color:var(--flame);outline:none}
+.err{color:#F0A08A;font-size:14px;margin:10px 0 0;min-height:1em}
+.form .row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
 .flame{display:inline-block;width:14px;height:20px;position:relative}
 .flame::before{content:"";position:absolute;inset:0;background:currentColor;border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
 .bigflame{width:22px;height:34px;color:var(--flame);margin:0 auto;animation:flick 3.2s ease-in-out infinite;transform-origin:50% 100%}
@@ -67,13 +75,16 @@ h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margi
 .view.on{display:block}
 .back{background:none;border:0;color:var(--flame);font-size:15px;padding:24px 0 0;display:inline-flex;gap:8px;align-items:center}
 .wallhead{text-align:center;padding:28px 0 28px}
-.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;padding-bottom:30px}
-.cd{background:var(--night2);border:1px solid var(--line);border-radius:14px;padding:18px 10px 14px;text-align:center}
-.cd .flame{color:var(--flame);margin-bottom:10px}
-.cd .wick{width:26px;height:40px;margin:0 auto;border-radius:4px 4px 2px 2px;background:linear-gradient(#EFE2C9,#CDBB98)}
-.cd p{margin:12px 0 0;font-family:var(--serif);font-size:19px;line-height:1.25;word-break:break-word}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding-bottom:30px}
+@media(max-width:480px){.wall{grid-template-columns:1fr}}
+.cd{background:var(--night2);border:1px solid var(--line);border-radius:14px;padding:18px 14px 16px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.cd .flame{color:var(--flame);margin-bottom:8px}
+.cd .wick{width:22px;height:32px;margin:0 auto;border-radius:4px 4px 2px 2px;background:linear-gradient(#EFE2C9,#CDBB98)}
+.cd .name{margin:10px 0 0;font-family:var(--serif);font-size:20px;line-height:1.25;word-break:break-word;font-weight:500}
+.cd .tribute{font-family:var(--serif);font-style:italic;font-size:16px;color:#D9CBB2;margin:10px 0 0;line-height:1.4;word-break:break-word;border-top:1px solid rgba(233,162,59,.18);padding-top:10px;width:100%}
 .cd.me{border-color:var(--flame);background:#2E2418}
 .cd.me small{display:block;color:var(--flame);font-size:12px;margin-top:4px;font-family:var(--sans)}
+.cd .card-actions{display:flex;gap:8px;margin-top:12px;width:100%;justify-content:center}
 .empty{text-align:center;color:var(--smoke);padding:10px 0 40px;font-size:15px}
 footer{text-align:center;padding:36px 20px 44px;border-top:1px solid var(--line);margin-top:20px}
 footer p{margin:0;font-family:var(--serif);font-size:24px;color:var(--flame)}
@@ -83,9 +94,10 @@ footer p{margin:0;font-family:var(--serif);font-size:24px;color:var(--flame)}
 <main>
 <div id="home" class="view on">
 <section class="hero wrap">
-<div class="arch"><img src="media/45.jpg" alt="Arleigh Patrick Todd"></div>
+<div class="arch"><img src="media/45.jpg" alt="Arleigh Arthur Patrick Todd"></div>
 <p class="intro">In loving memory of</p>
-<h1>Arleigh Patrick Todd</h1>
+<h1>Arleigh Arthur Patrick Todd</h1>
+<p class="dates">20 March 1961 &ensp;|&ensp; 25 August 2026</p>
 <p class="lede">Thank you for joining us to celebrate a life that touched so many of us.</p>
 <div class="cta" id="cta"></div>
 <p class="tally"><span id="tally"></span> <button type="button" id="seeWall">See the candles</button></p>
@@ -452,35 +464,158 @@ const KEY="apt-candle-mine";
 let candles=[],mineId=null,loaded=false;
 try{mineId=localStorage.getItem(KEY);}catch(e){}
 const H={"apikey":SB_KEY,"Authorization":"Bearer "+SB_KEY,"Content-Type":"application/json"};
-async function load(){if(!SHARED){try{candles=JSON.parse(localStorage.getItem("apt-candles-local")||"[]");}catch(e){candles=[];}loaded=true;renderAll();return;}try{const r=await fetch(SB_URL+"/rest/v1/candles?select=id,name,created_at&order=created_at.desc&limit=1000",{headers:H});if(!r.ok)throw 0;candles=await r.json();loaded=true;renderAll();}catch(e){}}
-async function addCandle(name){if(!SHARED){const row={id:"l"+Date.now(),name,created_at:new Date().toISOString()};candles.unshift(row);mineId=row.id;try{localStorage.setItem("apt-candles-local",JSON.stringify(candles));localStorage.setItem(KEY,row.id);}catch(e){}return;}const r=await fetch(SB_URL+"/rest/v1/candles",{method:"POST",headers:{...H,"Prefer":"return=representation"},body:JSON.stringify({name})});if(!r.ok)throw new Error("save");const row=(await r.json())[0];mineId=row.id;try{localStorage.setItem(KEY,row.id);}catch(e){}candles=candles.filter(c=>c.id!==row.id);candles.unshift(row);}
+
+async function load(){
+  if(!SHARED){
+    try{candles=JSON.parse(localStorage.getItem("apt-candles-local")||"[]");}catch(e){candles=[];}
+    loaded=true;renderAll();return;
+  }
+  try{
+    const r=await fetch(SB_URL+"/rest/v1/candles?select=id,name,tribute,created_at&order=created_at.desc&limit=1000",{headers:H});
+    if(!r.ok)throw 0;
+    candles=await r.json();
+    loaded=true;
+    renderAll();
+  }catch(e){}
+}
+
+async function addCandle(name,tribute){
+  if(!SHARED){
+    const row={id:"l"+Date.now(),name,tribute,created_at:new Date().toISOString()};
+    candles.unshift(row);
+    mineId=row.id;
+    try{localStorage.setItem("apt-candles-local",JSON.stringify(candles));localStorage.setItem(KEY,row.id);}catch(e){}
+    return;
+  }
+  const r=await fetch(SB_URL+"/rest/v1/candles",{method:"POST",headers:{...H,"Prefer":"return=representation"},body:JSON.stringify({name,tribute})});
+  if(!r.ok)throw new Error("save");
+  const row=(await r.json())[0];
+  mineId=row.id;
+  try{localStorage.setItem(KEY,row.id);}catch(e){}
+  candles=candles.filter(c=>String(c.id)!==String(row.id));
+  candles.unshift(row);
+}
+
+async function updateCandle(id,name,tribute){
+  if(!SHARED){
+    const c=candles.find(x=>String(x.id)===String(id));
+    if(c){c.name=name;c.tribute=tribute;}
+    try{localStorage.setItem("apt-candles-local",JSON.stringify(candles));}catch(e){}
+    return;
+  }
+  const r=await fetch(SB_URL+"/rest/v1/candles?id=eq."+encodeURIComponent(id),{
+    method:"PATCH",
+    headers:{...H,"Prefer":"return=representation"},
+    body:JSON.stringify({name,tribute})
+  });
+  if(!r.ok)throw new Error("update");
+  const updated=(await r.json())[0];
+  if(updated){
+    const idx=candles.findIndex(x=>String(x.id)===String(id));
+    if(idx!==-1)candles[idx]=updated;
+  }
+}
+
+async function deleteCandle(id){
+  if(!SHARED){
+    candles=candles.filter(x=>String(x.id)!==String(id));
+    mineId=null;
+    try{localStorage.removeItem(KEY);localStorage.setItem("apt-candles-local",JSON.stringify(candles));}catch(e){}
+    return;
+  }
+  const r=await fetch(SB_URL+"/rest/v1/candles?id=eq."+encodeURIComponent(id),{
+    method:"DELETE",
+    headers:H
+  });
+  if(!r.ok)throw new Error("delete");
+  candles=candles.filter(x=>String(x.id)!==String(id));
+  mineId=null;
+  try{localStorage.removeItem(KEY);}catch(e){}
+}
+
 const $=id=>document.getElementById(id);
 function plural(n){return n===1?"1 candle lit":n+" candles lit";}
 function renderCounts(){const t=!loaded?"":candles.length?plural(candles.length):"No candles lit yet.";$("tally").textContent=t;$("wallcount").textContent=candles.length?plural(candles.length):"";}
+
+function getMyCandle(){
+  return mineId?candles.find(c=>String(c.id)===String(mineId)):null;
+}
+
 function renderCta(el){
   el.innerHTML="";
-  if(mineId&&candles.some(c=>String(c.id)===String(mineId))){const p=document.createElement("p");p.className="meta";p.style.color="var(--flame)";p.textContent="Your candle is lit";el.appendChild(p);return;}
-  const b=document.createElement("button");b.type="button";b.className="btn";b.innerHTML='<span class="flame" aria-hidden="true"></span>Light a candle';
-  b.onclick=()=>openForm(el);el.appendChild(b);
+  const myCandle=getMyCandle();
+  if(myCandle){
+    const box=document.createElement("div");
+    box.style.cssText="background:var(--night2);border:1px solid var(--flame);border-radius:16px;padding:16px;text-align:center;";
+    box.innerHTML='<p class="meta" style="color:var(--flame);font-weight:600;margin:0 0 6px;">Your candle is lit</p><div class="my-actions"><button type="button" class="btn sm edit-btn"><span class="flame" aria-hidden="true"></span>Edit Candle & Tribute</button><button type="button" class="btn sm danger delete-btn">Remove</button></div>';
+    box.querySelector(".edit-btn").onclick=()=>openForm(el, true);
+    box.querySelector(".delete-btn").onclick=()=>confirmDelete(el, myCandle.id);
+    el.appendChild(box);
+    return;
+  }
+  const b=document.createElement("button");b.type="button";b.className="btn";b.innerHTML='<span class="flame" aria-hidden="true"></span>Light a candle & share a tribute';
+  b.onclick=()=>openForm(el, false);el.appendChild(b);
 }
-function openForm(el){
-  el.innerHTML='<div class="form"><label for="nm_'+el.id+'">Your name</label><input id="nm_'+el.id+'" maxlength="40" autocomplete="name" placeholder="Jane Smith"><p class="err" aria-live="polite"></p><div class="row"><button type="button" class="btn ghost cancel">Cancel</button><button type="button" class="btn go"><span class="flame" aria-hidden="true"></span>Light my candle</button></div></div>';
-  const inp=el.querySelector("input"),err=el.querySelector(".err");inp.focus();
+
+function confirmDelete(el, id){
+  if(confirm("Are you sure you want to remove your candle and tribute?")){
+    deleteCandle(id).then(()=>{renderAll();}).catch(()=>{alert("Unable to remove candle. Please check your connection.");});
+  }
+}
+
+function openForm(el, isEdit){
+  const myCandle=isEdit?getMyCandle():null;
+  const initName=myCandle?myCandle.name:"";
+  const initTribute=myCandle&&myCandle.tribute?myCandle.tribute:"";
+  
+  el.innerHTML='<div class="form"><label for="nm_'+el.id+'">Your Name</label><input id="nm_'+el.id+'" maxlength="40" autocomplete="name" placeholder="Jane Smith" value="'+escapeHtml(initName)+'"><label for="tr_'+el.id+'">Your Tribute / Memory <span style="opacity:0.7;font-weight:normal">(Optional)</span></label><textarea id="tr_'+el.id+'" maxlength="300" placeholder="Share a cherished memory, blessing, or tribute...">' + escapeHtml(initTribute) + '</textarea><p class="err" aria-live="polite"></p><div class="row"><button type="button" class="btn ghost cancel">Cancel</button>' + (isEdit?'<button type="button" class="btn danger del-form">Remove</button>':'') + '<button type="button" class="btn go"><span class="flame" aria-hidden="true"></span>' + (isEdit?'Save Changes':'Light My Candle') + '</button></div></div>';
+  
+  const inp=el.querySelector("input"),trInp=el.querySelector("textarea"),err=el.querySelector(".err");
+  inp.focus();
   inp.oninput=()=>{err.textContent="";};
-  const go=()=>{const v=inp.value.trim().replace(/\s+/g," ");if(!v){err.textContent="Enter your name to light a candle.";inp.focus();return;}
-    const gb=el.querySelector(".go");gb.disabled=true;gb.lastChild.textContent="Lighting…";addCandle(v).then(()=>{renderAll();show("candles");}).catch(()=>{gb.disabled=false;gb.lastChild.textContent="Light my candle";err.textContent="Your candle didn\u2019t save. Check your connection and try again.";});};
-  el.querySelector(".go").onclick=go;inp.onkeydown=e=>{if(e.key==="Enter")go();};
+  
+  const go=()=>{
+    const vName=inp.value.trim().replace(/\s+/g," ");
+    const vTribute=trInp.value.trim();
+    if(!vName){err.textContent="Please enter your name.";inp.focus();return;}
+    const gb=el.querySelector(".go");gb.disabled=true;gb.lastChild.textContent=isEdit?"Saving…":"Lighting…";
+    const action = isEdit ? updateCandle(myCandle.id, vName, vTribute) : addCandle(vName, vTribute);
+    action.then(()=>{renderAll();show("candles");}).catch(()=>{gb.disabled=false;gb.lastChild.textContent=isEdit?"Save Changes":"Light My Candle";err.textContent="Your candle didn\u2019t save. Check your connection and try again.";});
+  };
+  
+  el.querySelector(".go").onclick=go;
   el.querySelector(".cancel").onclick=()=>renderCta(el);
+  if(isEdit){
+    el.querySelector(".del-form").onclick=()=>confirmDelete(el, myCandle.id);
+  }
 }
+
+function escapeHtml(str){
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function renderWall(){
   const w=$("wall");w.innerHTML="";
-  if(!loaded){w.innerHTML='<p class="empty" style="grid-column:1/-1">Loading candles</p>';return;}
-  if(!candles.length){w.innerHTML='<p class="empty" style="grid-column:1/-1">Be the first to light a candle for Arleigh.</p>';return;}
-  candles.forEach((c)=>{const me=mineId&&String(c.id)===String(mineId);const d=document.createElement("div");d.className="cd"+(me?" me":"");
-    d.innerHTML='<span class="flame" aria-hidden="true"></span><div class="wick" aria-hidden="true"></div><p></p>';
-    d.querySelector("p").textContent=c.name;
-    if(me){const s=document.createElement("small");s.textContent="Your candle";d.querySelector("p").appendChild(s);}
-    w.appendChild(d);});
+  if(!loaded){w.innerHTML='<p class="empty" style="grid-column:1/-1">Loading candles & tributes</p>';return;}
+  if(!candles.length){w.innerHTML='<p class="empty" style="grid-column:1/-1">Be the first to light a candle and leave a tribute for Arleigh.</p>';return;}
+  candles.forEach((c)=>{
+    const me=mineId&&String(c.id)===String(mineId);
+    const d=document.createElement("div");d.className="cd"+(me?" me":"");
+    let html='<span class="flame" aria-hidden="true"></span><div class="wick" aria-hidden="true"></div>';
+    html+='<div class="name">'+escapeHtml(c.name)+(me?'<small>Your Candle</small>':'')+'</div>';
+    if(c.tribute&&c.tribute.trim()){
+      html+='<div class="tribute">&ldquo;'+escapeHtml(c.tribute.trim())+'&rdquo;</div>';
+    }
+    if(me){
+      html+='<div class="card-actions"><button type="button" class="btn sm edit-card-btn">Edit</button><button type="button" class="btn sm danger delete-card-btn">Delete</button></div>';
+    }
+    d.innerHTML=html;
+    if(me){
+      d.querySelector(".edit-card-btn").onclick=()=>openForm($("cta2"), true);
+      d.querySelector(".delete-card-btn").onclick=()=>confirmDelete($("cta2"), c.id);
+    }
+    w.appendChild(d);
+  });
 }
 function renderAll(){renderCounts();renderCta($("cta"));renderCta($("cta2"));renderWall();}
 function show(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id===v));window.scrollTo(0,0);}
