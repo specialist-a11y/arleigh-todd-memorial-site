@@ -578,7 +578,7 @@ function renderCta(el, force){
 
 function confirmDelete(el, id){
   if(confirm("Are you sure you want to remove your candle and tribute?")){
-    deleteCandle(id).then(()=>{el.removeAttribute("data-form-open");renderAll();}).catch(()=>{alert("Unable to remove candle. Please check your connection.");});
+    deleteCandle(id).then(()=>{renderCta(el, true);renderAll();}).catch(()=>{alert("Unable to remove candle. Please check your connection.");});
   }
 }
 
@@ -600,7 +600,7 @@ function openForm(el, isEdit){
     if(!vName){err.textContent="Please enter your name.";inp.focus();return;}
     const gb=el.querySelector(".go");gb.disabled=true;gb.lastChild.textContent=isEdit?"Saving…":"Lighting…";
     const action = isEdit ? updateCandle(myCandle.id, vName, vTribute) : addCandle(vName, vTribute);
-    action.then(()=>{el.removeAttribute("data-form-open");renderAll();show("candles");}).catch(()=>{gb.disabled=false;gb.lastChild.textContent=isEdit?"Save Changes":"Light My Candle";err.textContent="Your candle didn\u2019t save. Check your connection and try again.";});
+    action.then(()=>{renderCta(el, true);renderAll();show("candles");}).catch(()=>{gb.disabled=false;gb.lastChild.textContent=isEdit?"Save Changes":"Light My Candle";err.textContent="Your candle didn\u2019t save. Check your connection and try again.";});
   };
   
   el.querySelector(".go").onclick=go;
