@@ -84,7 +84,23 @@ h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margi
 .cd .tribute{font-family:var(--serif);font-style:italic;font-size:16px;color:#D9CBB2;margin:10px 0 0;line-height:1.4;word-break:break-word;border-top:1px solid rgba(233,162,59,.18);padding-top:10px;width:100%}
 .cd.me{border-color:var(--flame);background:#2E2418}
 .cd.me small{display:block;color:var(--flame);font-size:12px;margin-top:4px;font-family:var(--sans)}
-.cd .card-actions{display:flex;gap:8px;margin-top:12px;width:100%;justify-content:center}
+html,body{overflow-x:hidden}
+.h-scroll-section{margin-bottom:28px}
+.h-scroll-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.h-scroll-head span{font-size:13px;color:var(--flame);letter-spacing:.03em;display:flex;align-items:center;gap:6px}
+.h-scroll-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
+.h-scroll-track::-webkit-scrollbar{height:5px}
+.h-scroll-track::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:999px}
+.h-scroll-track::-webkit-scrollbar-thumb{background:var(--flame);border-radius:999px}
+.h-item{flex:0 0 clamp(200px,68vw,280px);scroll-snap-align:center;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--night2);position:relative;aspect-ratio:3/4;cursor:pointer;margin:0}
+.h-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s,opacity .3s}
+.h-item:hover img{transform:scale(1.03);opacity:.9}
+@media(max-width:600px){
+  .wall{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
+  .wall::-webkit-scrollbar{height:4px}
+  .wall::-webkit-scrollbar-thumb{background:var(--flame);border-radius:999px}
+  .cd{flex:0 0 85vw;max-width:320px;scroll-snap-align:center}
+}
 .obituary-card{max-width:480px;margin:20px auto 24px;border-radius:16px;overflow:hidden;border:1px solid rgba(233,162,59,.35);box-shadow:0 8px 24px rgba(0,0,0,.4);background:var(--night2)}
 .obituary-card img{width:100%;height:auto;display:block}
 .empty{text-align:center;color:var(--smoke);padding:10px 0 40px;font-size:15px}
@@ -105,7 +121,14 @@ footer p{margin:0;font-family:var(--serif);font-size:24px;color:var(--flame)}
 <p class="tally"><span id="tally"></span> <button type="button" id="seeWall">See the candles</button></p>
 </section>
 <section class="sec wrap" aria-labelledby="memh">
-<div class="sechead"><h2 id="memh">Memories</h2><span class="meta" id="memcount"></span></div>
+<div class="h-scroll-section">
+<div class="h-scroll-head">
+  <h2>Featured Memories</h2>
+  <span>Swipe left & right &rarr;</span>
+</div>
+<div class="h-scroll-track" id="hScrollTrack"></div>
+</div>
+<div class="sechead"><h2 id="memh">All Memories</h2><span class="meta" id="memcount"></span></div>
 <div class="gal" id="gal"></div>
 </section>
 </div>
@@ -640,14 +663,24 @@ function renderWall(){
 function renderAll(){renderCounts();renderCta($("cta"));renderCta($("cta2"));renderWall();}
 function show(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id===v));window.scrollTo(0,0);}
 $("seeWall").onclick=()=>show("candles");$("back").onclick=()=>show("home");
-const gal=$("gal");const vids=MEDIA.filter(m=>m.t==="v").length;
+const gal=$("gal"),hTrack=$("hScrollTrack");const vids=MEDIA.filter(m=>m.t==="v").length;
 $("memcount").textContent=(MEDIA.length-vids)+" photos and "+vids+" videos";
-MEDIA.forEach((m,i)=>{const b=document.createElement("button");b.type="button";b.className="it";
+MEDIA.forEach((m,i)=>{
+  if(hTrack && i < 14){
+    const d=document.createElement("div");d.className="h-item";d.setAttribute("role","button");
+    d.setAttribute("aria-label",(m.t==="v"?"Play featured video ":"Open featured photo ")+(i+1));
+    const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";img.src=m.t==="v"?m.poster:m.src;
+    d.appendChild(img);
+    if(m.t==="v"){const p=document.createElement("div");p.className="play";p.innerHTML="<span></span>";d.appendChild(p);}
+    d.onclick=()=>openLb(i);hTrack.appendChild(d);
+  }
+  const b=document.createElement("button");b.type="button";b.className="it";
   b.setAttribute("aria-label",(m.t==="v"?"Play video ":"Open photo ")+(i+1)+" of "+MEDIA.length);
   const img=document.createElement("img");img.alt="";img.loading="lazy";img.decoding="async";img.src=m.t==="v"?m.poster:m.src;
   if(m.w){img.width=m.w;img.height=m.h;}
   b.appendChild(img);if(m.t==="v"){const p=document.createElement("div");p.className="play";p.innerHTML="<span></span>";b.appendChild(p);}
-  b.onclick=()=>openLb(i);gal.appendChild(b);});
+  b.onclick=()=>openLb(i);gal.appendChild(b);
+});
 let cur=0,lastFocus=null;
 function drawLb(){const m=MEDIA[cur],st=$("lbstage");st.innerHTML="";
   if(m.t==="v"){const v=document.createElement("video");v.src=m.src;v.poster=m.poster;v.controls=true;v.playsInline=true;v.autoplay=true;st.appendChild(v);}
@@ -658,9 +691,9 @@ function closeLb(){$("lb").classList.remove("on");$("lbstage").innerHTML="";docu
 function step(d){cur=(cur+d+MEDIA.length)%MEDIA.length;drawLb();}
 $("lbclose").onclick=closeLb;$("lbprev").onclick=()=>step(-1);$("lbnext").onclick=()=>step(1);
 document.addEventListener("keydown",e=>{if(!$("lb").classList.contains("on"))return;if(e.key==="Escape")closeLb();if(e.key==="ArrowLeft")step(-1);if(e.key==="ArrowRight")step(1);});
-let sx=null;const st=$("lbstage");
-st.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;},{passive:true});
-st.addEventListener("touchend",e=>{if(sx===null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)step(dx<0?1:-1);sx=null;});
+let sx=null,sy=null;const lb=$("lb");
+lb.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+lb.addEventListener("touchend",e=>{if(sx===null||sy===null)return;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy))step(dx<0?1:-1);sx=null;sy=null;});
 renderAll();load();if(SHARED)setInterval(()=>{if(!document.hidden)load();},20000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)load();});
 </script>
 </body>
