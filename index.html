@@ -75,13 +75,13 @@ h2{font-family:var(--serif);font-weight:500;font-size:34px;line-height:1.1;margi
 .view.on{display:block}
 .back{background:none;border:0;color:var(--flame);font-size:15px;padding:24px 0 0;display:inline-flex;gap:8px;align-items:center}
 .wallhead{text-align:center;padding:24px 0 20px;max-width:540px;margin:0 auto}
-.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;padding-bottom:32px;max-width:1080px;margin:0 auto;justify-content:center;justify-items:center}
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,320px));gap:16px;padding-bottom:32px;max-width:1080px;margin:0 auto;justify-content:center;justify-items:center}
 .cd{background:var(--night2);border:1px solid var(--line);border-radius:16px;padding:20px 16px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;height:100%;width:100%;max-width:360px;margin:0 auto;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:border-color .2s,transform .2s}
 .cd:hover{border-color:rgba(233,162,59,.4)}
 .cd .flame{color:var(--flame);margin-bottom:6px}
 .cd .wick{width:22px;height:32px;margin:0 auto;border-radius:4px 4px 2px 2px;background:linear-gradient(#EFE2C9,#CDBB98)}
-.cd .name{margin:10px 0 0;font-family:var(--serif);font-size:21px;line-height:1.25;word-break:break-word;font-weight:500;color:var(--wax);text-align:center}
-.cd .tribute{font-family:var(--serif);font-style:italic;font-size:16px;color:#D9CBB2;margin:12px 0 0;line-height:1.45;word-break:break-word;border-top:1px solid rgba(233,162,59,.2);padding-top:12px;width:100%;text-align:center;flex:1;display:flex;align-items:center;justify-content:center}
+.cd .name{margin:10px 0 0;font-family:var(--serif);font-size:21px;line-height:1.25;word-break:break-word;font-weight:500;color:var(--wax);text-align:center;width:100%}
+.cd .tribute{font-family:var(--serif);font-style:italic;font-size:16px;color:#D9CBB2;margin:12px 0 0;line-height:1.45;word-break:break-word;border-top:1px solid rgba(233,162,59,.2);padding-top:12px;width:100%;text-align:center;display:block}
 .cd.me{border-color:var(--flame);background:#2E2418}
 .cd.me small{display:block;color:var(--flame);font-size:12px;margin-top:4px;font-family:var(--sans);text-align:center}
 .cd .card-actions{display:flex;gap:8px;margin-top:14px;width:100%;justify-content:center}
@@ -89,18 +89,24 @@ html,body{overflow-x:hidden}
 .h-scroll-section{margin-bottom:28px}
 .h-scroll-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .h-scroll-head span{font-size:13px;color:var(--flame);letter-spacing:.03em;display:flex;align-items:center;gap:6px}
-.h-scroll-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
+.h-scroll-track{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
 .h-scroll-track::-webkit-scrollbar{height:5px}
 .h-scroll-track::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:999px}
 .h-scroll-track::-webkit-scrollbar-thumb{background:var(--flame);border-radius:999px}
 .h-item{flex:0 0 clamp(200px,68vw,280px);scroll-snap-align:center;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--night2);position:relative;aspect-ratio:3/4;cursor:pointer;margin:0}
 .h-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s,opacity .3s}
 .h-item:hover img{transform:scale(1.03);opacity:.9}
+.wall-nav-bar{display:flex;justify-content:space-between;align-items:center;margin:12px 0 8px;padding:0 4px}
+.wall-nav-btns{display:flex;gap:8px}
 @media(max-width:600px){
-  .wall{display:flex;justify-content:center;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px 12px 20px;gap:14px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent}
+  .wall{display:flex;justify-content:flex-start;align-items:stretch;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y;padding:8px 16px 20px;gap:14px;scrollbar-width:thin;scrollbar-color:var(--flame) transparent;scroll-padding-left:16px;scroll-padding-right:16px}
   .wall::-webkit-scrollbar{height:4px}
   .wall::-webkit-scrollbar-thumb{background:var(--flame);border-radius:999px}
-  .cd{flex:0 0 88vw;max-width:320px;scroll-snap-align:center;margin:0 auto}
+  .cd{flex:0 0 85vw;max-width:320px;scroll-snap-align:start;margin:0}
+  .wall > .cd:only-child{margin-left:auto;margin-right:auto}
+}
+@media(min-width:601px){
+  .wall-nav-btns{display:none !important}
 }
 .obituary-card{max-width:480px;width:100%;margin:20px auto 24px;border-radius:16px;overflow:hidden;border:1px solid rgba(233,162,59,.35);box-shadow:0 8px 24px rgba(0,0,0,.4);background:var(--night2)}
 .obituary-card img{width:100%;height:auto;display:block}
@@ -144,6 +150,12 @@ footer p{margin:0;font-family:var(--serif);font-size:24px;color:var(--flame)}
 <img src="media/obituary.jpg" alt="In Loving Memory Notice for Arleigh Todd" loading="lazy">
 </div>
 <div class="cta" id="cta2"></div>
+</div>
+<div class="wall-nav-bar" id="wallNavBar" style="display:none;justify-content:flex-end;margin-bottom:8px;">
+  <div class="wall-nav-btns" id="wallNavBtns">
+    <button type="button" id="wallPrev" class="btn ghost sm" style="min-height:36px;padding:0 12px;font-size:14px;" aria-label="Previous candle">&larr; Prev</button>
+    <button type="button" id="wallNext" class="btn ghost sm" style="min-height:36px;padding:0 12px;font-size:14px;" aria-label="Next candle">Next &rarr;</button>
+  </div>
 </div>
 <div class="wall" id="wall"></div>
 </div>
@@ -639,7 +651,8 @@ function escapeHtml(str){
 }
 
 function renderWall(){
-  const w=$("wall");w.innerHTML="";
+  const w=$("wall"), navBar=$("wallNavBar");w.innerHTML="";
+  if(navBar) navBar.style.display = (loaded && candles.length > 1) ? "flex" : "none";
   if(!loaded){w.innerHTML='<p class="empty" style="grid-column:1/-1">Loading candles & tributes</p>';return;}
   if(!candles.length){w.innerHTML='<p class="empty" style="grid-column:1/-1">Be the first to light a candle and leave a tribute for Arleigh.</p>';return;}
   candles.forEach((c)=>{
@@ -664,6 +677,8 @@ function renderWall(){
 function renderAll(){renderCounts();renderCta($("cta"));renderCta($("cta2"));renderWall();}
 function show(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id===v));window.scrollTo(0,0);}
 $("seeWall").onclick=()=>show("candles");$("back").onclick=()=>show("home");
+if($("wallPrev")) $("wallPrev").onclick=()=>{$("wall").scrollBy({left:-280,behavior:"smooth"});};
+if($("wallNext")) $("wallNext").onclick=()=>{$("wall").scrollBy({left:280,behavior:"smooth"});};
 const gal=$("gal"),hTrack=$("hScrollTrack");const vids=MEDIA.filter(m=>m.t==="v").length;
 $("memcount").textContent=(MEDIA.length-vids)+" photos and "+vids+" videos";
 MEDIA.forEach((m,i)=>{
